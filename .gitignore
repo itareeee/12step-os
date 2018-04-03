@@ -1,4 +1,8 @@
 build/*
 !build/.gitkeep
+
 tools/*
 !tools/.gitkeep
+
+src/01/bootload/kzload*
+src/01/bootload/*.o

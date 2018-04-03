@@ -31,7 +31,7 @@ fi
 ####################
 # install gcc
 ####################
-if [ ! -e $SCRIPT_DIR/tools/lib/gcc ]; then
+if [ ! -e $TOOLS_DIR/lib/gcc ]; then
   cd $SCRIPT_DIR/build
   sudo -u $SUDO_USER curl -O http://kozos.jp/books/makeos/gcc-3.4.6.tar.gz
   sudo -u $SUDO_USER tar jxf ./gcc-3.4.6.tar.gz
@@ -44,4 +44,15 @@ if [ ! -e $SCRIPT_DIR/tools/lib/gcc ]; then
   sudo -u $SUDO_USER make
 
   make install
+fi
+
+####################
+# install kz_h8write
+####################
+
+if [ ! -e $TOOLS_DIR/h8write ]; then
+  cd $SCRIPT_DIR/build
+  sudo -u $SUDO_USER curl -O http://mes.osdn.jp/h8/h8write.c
+  sudo -u $SUDO_USER mkdir ../tools/h8write
+  sudo -u $SUDO_USER gcc -Wall -o ../tools/h8write/h8write h8write.c
 fi
