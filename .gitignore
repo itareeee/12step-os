@@ -4,5 +4,5 @@ build/*
 tools/*
 !tools/.gitkeep
 
-src/01/bootload/kzload*
-src/01/bootload/*.o
+src/bootload/kzload*
+src/bootload/*.o

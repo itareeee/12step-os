@@ -2,30 +2,54 @@ OUTPUT_FORMAT("elf32-h8300")
 OUTPUT_ARCH(h8300h)
 ENTRY("_start")
 
+MEMORY
+{
+        romall(rx)      : ORIGIN = 0x000000, LENGTH = 0x080000 /* 512KB */
+        vectors(r)      : ORIGIN = 0x000000, LENGTH = 0x000100 /* top of ROM */
+        rom(rx)         : ORIGIN = 0x000100, LENGTH = 0x07ff00
+
+        ramall(rwx)     : ORIGIN = 0xffbf20, LENGTH = 0x004000 /* 16KB */
+        data(rwx)       : ORIGIN = 0xfffc20, LENGTH = 0x000300
+        stack(rw)       : ORIGIN = 0xffff00, LENGTH = 0x000000 /* end of RAM */
+}
+
 SECTIONS
 {
-       . = 0x0;
-
-       .vectors : {
+        .vectors : {
                 vector.o(.data)
-       }
+        } > vectors
 
-       .text : {
-               *(.text)
-       }
+        .text : {
+                _text_start = . ;
+                *(.text)
+                _etext = . ;
+        } > rom
 
-       .rodata : {
-               *(.strings)   
-               *(.rodata)   
-               *(.rodata.*)   
-       }
+        .rodata : {
+                _rodata_start = . ;
+                *(.strings)   
+                *(.rodata)   
+                *(.rodata.*)   
+                _erodata = . ;
+        } > rom
 
-       .data : {
-               *(.data)
-       }
+        .data : {
+                _data_start = . ;
+                *(.data)
+                _edata = . ;
+        } > data AT> rom
 
-       .bss : {
-               *(.bss)
-               *(COMMON)
-       }
+        .bss : {
+                _bss_start = . ;
+                *(.bss)
+                *(COMMON)
+                _ebss = . ;
+        } > data AT> rom
+
+        . = ALIGN(4);
+        _end = . ;
+
+        .stack : {
+                _stack = .;  
+        } > stack
 }
