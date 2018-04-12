@@ -1,0 +1,169 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 02 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, big endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           Renesas H8/300
+  Version:                           0x1
+  Entry point address:               0x100
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          2244 (bytes into file)
+  Flags:                             0x810000
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         3
+  Size of section headers:           40 (bytes)
+  Number of section headers:         9
+  Section header string table index: 6
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .vectors          PROGBITS        00000000 000094 000100 00  WA  0   0  4
+  [ 2] .text             PROGBITS        00000100 000194 00064a 00  AX  0   0  2
+  [ 3] .rodata           PROGBITS        0000074a 0007de 000096 01 AMS  0   0  1
+  [ 4] .data             PROGBITS        00fffc20 000874 000010 00  WA  0   0  4
+  [ 5] .bss              NOBITS          00fffc30 000884 000014 00  WA  0   0  4
+  [ 6] .shstrtab         STRTAB          00000000 000884 00003d 00      0   0  1
+  [ 7] .symtab           SYMTAB          00000000 000a2c 0006c0 10      8  76  4
+  [ 8] .strtab           STRTAB          00000000 0010ec 00027c 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings)
+  I (info), L (link order), G (group), x (unknown)
+  O (extra OS processing required) o (OS specific), p (processor specific)
+
+There are no section groups in this file.
+
+Program Headers:
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  LOAD           0x000094 0x00000000 0x00000000 0x00100 0x00100 RW  0x1
+  LOAD           0x000194 0x00000100 0x00000100 0x006e0 0x006e0 R E 0x1
+  LOAD           0x000874 0x00fffc20 0x000007e0 0x00010 0x00024 RW  0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .vectors 
+   01     .text .rodata 
+   02     .data .bss 
+
+There is no dynamic section in this file.
+
+There are no relocations in this file.
+
+There are no unwind sections in this file.
+
+Symbol table '.symtab' contains 108 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 SECTION LOCAL  DEFAULT    1 
+     2: 00000100     0 SECTION LOCAL  DEFAULT    2 
+     3: 0000074a     0 SECTION LOCAL  DEFAULT    3 
+     4: 00fffc20     0 SECTION LOCAL  DEFAULT    4 
+     5: 00fffc30     0 SECTION LOCAL  DEFAULT    5 
+     6: 00000000     0 FILE    LOCAL  DEFAULT  ABS vector.c
+     7: 0000010a     0 NOTYPE  LOCAL  DEFAULT    2 .L1^B1
+     8: 00000000     0 FILE    LOCAL  DEFAULT  ABS main.c
+     9: 00fffc30    16 OBJECT  LOCAL  DEFAULT    5 buf___0
+    10: 00fffc20     4 OBJECT  LOCAL  DEFAULT    4 size___1
+    11: 00fffc40     4 OBJECT  LOCAL  DEFAULT    5 loadbuf___2
+    12: 000001e8     0 NOTYPE  LOCAL  DEFAULT    2 .L5
+    13: 000001cc     0 NOTYPE  LOCAL  DEFAULT    2 .L26
+    14: 000001ae     0 NOTYPE  LOCAL  DEFAULT    2 .L33
+    15: 000001de     0 NOTYPE  LOCAL  DEFAULT    2 .L11
+    16: 00000160     0 NOTYPE  LOCAL  DEFAULT    2 .L36
+    17: 0000029a     0 NOTYPE  LOCAL  DEFAULT    2 .L14
+    18: 00000242     0 NOTYPE  LOCAL  DEFAULT    2 .L15
+    19: 00000290     0 NOTYPE  LOCAL  DEFAULT    2 .L28
+    20: 00000272     0 NOTYPE  LOCAL  DEFAULT    2 .L20
+    21: 00000288     0 NOTYPE  LOCAL  DEFAULT    2 .L35
+    22: 00000282     0 NOTYPE  LOCAL  DEFAULT    2 .L22
+    23: 00000244     0 NOTYPE  LOCAL  DEFAULT    2 .L34
+    24: 00000000     0 FILE    LOCAL  DEFAULT  ABS lib.c
+    25: 000002b8     0 NOTYPE  LOCAL  DEFAULT    2 .L7
+    26: 000002ac     0 NOTYPE  LOCAL  DEFAULT    2 .L8
+    27: 000002da     0 NOTYPE  LOCAL  DEFAULT    2 .L15
+    28: 000002cc     0 NOTYPE  LOCAL  DEFAULT    2 .L16
+    29: 00000314     0 NOTYPE  LOCAL  DEFAULT    2 .L26
+    30: 0000030c     0 NOTYPE  LOCAL  DEFAULT    2 .L21
+    31: 00000306     0 NOTYPE  LOCAL  DEFAULT    2 .L22
+    32: 00000316     0 NOTYPE  LOCAL  DEFAULT    2 .L17
+    33: 000002f2     0 NOTYPE  LOCAL  DEFAULT    2 .L27
+    34: 00000332     0 NOTYPE  LOCAL  DEFAULT    2 .L34
+    35: 00000328     0 NOTYPE  LOCAL  DEFAULT    2 .L35
+    36: 00000350     0 NOTYPE  LOCAL  DEFAULT    2 .L38
+    37: 00000342     0 NOTYPE  LOCAL  DEFAULT    2 .L37
+    38: 00000366     0 NOTYPE  LOCAL  DEFAULT    2 .L53
+    39: 00000382     0 NOTYPE  LOCAL  DEFAULT    2 .L50
+    40: 0000037c     0 NOTYPE  LOCAL  DEFAULT    2 .L45
+    41: 00000376     0 NOTYPE  LOCAL  DEFAULT    2 .L46
+    42: 00000384     0 NOTYPE  LOCAL  DEFAULT    2 .L41
+    43: 0000035e     0 NOTYPE  LOCAL  DEFAULT    2 .L55
+    44: 000003b0     0 NOTYPE  LOCAL  DEFAULT    2 .L57
+    45: 000003ac     0 NOTYPE  LOCAL  DEFAULT    2 .L60
+    46: 000003a6     0 NOTYPE  LOCAL  DEFAULT    2 .L61
+    47: 000003be     0 NOTYPE  LOCAL  DEFAULT    2 .L56
+    48: 000003b8     0 NOTYPE  LOCAL  DEFAULT    2 .L59
+    49: 000003bc     0 NOTYPE  LOCAL  DEFAULT    2 .L58
+    50: 00000398     0 NOTYPE  LOCAL  DEFAULT    2 .L63
+    51: 000003e2     0 NOTYPE  LOCAL  DEFAULT    2 .L65
+    52: 00000410     0 NOTYPE  LOCAL  DEFAULT    2 .L67
+    53: 00000412     0 NOTYPE  LOCAL  DEFAULT    2 .L68
+    54: 0000043e     0 NOTYPE  LOCAL  DEFAULT    2 .L74
+    55: 00000432     0 NOTYPE  LOCAL  DEFAULT    2 .L75
+    56: 00000466     0 NOTYPE  LOCAL  DEFAULT    2 .L80
+    57: 0000045c     0 NOTYPE  LOCAL  DEFAULT    2 .L77
+    58: 000004a0     0 NOTYPE  LOCAL  DEFAULT    2 .L94
+    59: 000004c4     0 NOTYPE  LOCAL  DEFAULT    2 .L83
+    60: 00000000     0 FILE    LOCAL  DEFAULT  ABS serial.c
+    61: 00fffc24    12 OBJECT  LOCAL  DEFAULT    4 _regs
+    62: 00000564     0 NOTYPE  LOCAL  DEFAULT    2 .L4
+    63: 000005d8     0 NOTYPE  LOCAL  DEFAULT    2 .L8
+    64: 00000000     0 FILE    LOCAL  DEFAULT  ABS xmodem.c
+    65: 0000065a     0 NOTYPE  LOCAL  DEFAULT    2 .L4
+    66: 0000064e     0 NOTYPE  LOCAL  DEFAULT    2 .L40
+    67: 00000638     0 NOTYPE  LOCAL  DEFAULT    2 .L8
+    68: 00000726     0 NOTYPE  LOCAL  DEFAULT    2 .L27
+    69: 00000720     0 NOTYPE  LOCAL  DEFAULT    2 .L38
+    70: 00000718     0 NOTYPE  LOCAL  DEFAULT    2 .L14
+    71: 0000070a     0 NOTYPE  LOCAL  DEFAULT    2 .L30
+    72: 000006b0     0 NOTYPE  LOCAL  DEFAULT    2 .L21
+    73: 0000070c     0 NOTYPE  LOCAL  DEFAULT    2 .L37
+    74: 0000062e     0 NOTYPE  LOCAL  DEFAULT    2 .L39
+    75: 00000736     0 NOTYPE  LOCAL  DEFAULT    2 .L1
+    76: 00000358    50 NOTYPE  GLOBAL DEFAULT    2 _strcmp
+    77: 00000000   256 OBJECT  GLOBAL DEFAULT    1 _vectors
+    78: 000003c8    46 NOTYPE  GLOBAL DEFAULT    2 _putc
+    79: 0000074a     0 NOTYPE  GLOBAL DEFAULT    2 _etext
+    80: 000003f6    48 NOTYPE  GLOBAL DEFAULT    2 _getc
+    81: 00000426    36 NOTYPE  GLOBAL DEFAULT    2 _puts
+    82: 00fffc30     0 NOTYPE  GLOBAL DEFAULT    5 _bss_start
+    83: 00000100     0 NOTYPE  GLOBAL DEFAULT    2 _text_start
+    84: 00000518    36 NOTYPE  GLOBAL DEFAULT    2 _serial_is_send_enable
+    85: 000005b6    74 NOTYPE  GLOBAL DEFAULT    2 _serial_recv_byte
+    86: 0000044a    58 NOTYPE  GLOBAL DEFAULT    2 _gets
+    87: 00fffc44     0 NOTYPE  GLOBAL DEFAULT    5 _ebss
+    88: 000002be    40 NOTYPE  GLOBAL DEFAULT    2 _memcpy
+    89: 000002a4    26 NOTYPE  GLOBAL DEFAULT    2 _memset
+    90: 00000100     0 FUNC    GLOBAL DEFAULT    2 _start
+    91: 00fffc20     0 NOTYPE  GLOBAL DEFAULT    4 _data_start
+    92: 000004e2    54 NOTYPE  GLOBAL DEFAULT    2 _serial_init
+    93: 00000484    94 NOTYPE  GLOBAL DEFAULT    2 _putxval
+    94: 0000033a    30 NOTYPE  GLOBAL DEFAULT    2 _strcpy
+    95: 00ffdf20     0 NOTYPE  GLOBAL DEFAULT    4 _buffer_start
+    96: 000002e6    58 NOTYPE  GLOBAL DEFAULT    2 _memcmp
+    97: 0000038a    62 NOTYPE  GLOBAL DEFAULT    2 _strncmp
+    98: 0000074a     0 NOTYPE  GLOBAL DEFAULT    3 _rodata_start
+    99: 00fffc30     0 NOTYPE  GLOBAL DEFAULT    4 _edata
+   100: 00fffc44     0 NOTYPE  GLOBAL DEFAULT  ABS _end
+   101: 00000592    36 NOTYPE  GLOBAL DEFAULT    2 _serial_is_recv_enable
+   102: 00000320    26 NOTYPE  GLOBAL DEFAULT    2 _strlen
+   103: 00000600   330 NOTYPE  GLOBAL DEFAULT    2 _xmodem_recv
+   104: 0000053c    86 NOTYPE  GLOBAL DEFAULT    2 _serial_send_byte
+   105: 00ffff00     0 NOTYPE  GLOBAL DEFAULT    5 _stack
+   106: 0000010c   408 NOTYPE  GLOBAL DEFAULT    2 _main
+   107: 000007e0     0 NOTYPE  GLOBAL DEFAULT    3 _erodata
+
+No version information found in this file.
