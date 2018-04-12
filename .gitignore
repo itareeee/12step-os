@@ -6,3 +6,5 @@ tools/*
 
 src/bootload/kzload*
 src/bootload/*.o
+
+*.swp
