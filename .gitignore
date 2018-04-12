@@ -1,10 +1,22 @@
+# Dev Tools Managed with setup.sh
+
 build/*
 !build/.gitkeep
 
 tools/*
 !tools/.gitkeep
 
+
+# Build Artifacts
+
 src/bootload/kzload*
 src/bootload/*.o
 
+src/os/kozos*
+src/os/*.o
+
+
+# General
+
 *.swp
+
