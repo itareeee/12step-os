@@ -72,9 +72,17 @@ int putc(unsigned char c)
 {
   if (c == '\n')
     serial_send_byte(SERIAL_DEFAULT_DEVICE, '\r');
-  serial_send_byte(SERIAL_DEFAULT_DEVICE, c);
+  return serial_send_byte(SERIAL_DEFAULT_DEVICE, c);
 }
 
+/* 1文字受信 */
+unsigned char getc(void)
+{
+  unsigned char c = serial_recv_byte(SERIAL_DEFAULT_DEVICE);
+  c = (c == '\r') ? '\n' : c;
+  putc(c); /* エコー・バック */
+  return c;
+}
 
 /* 文字列送信 */
 int puts(unsigned char *str)
@@ -83,6 +91,22 @@ int puts(unsigned char *str)
   while (*str)
     putc(*(str++));
   return 0;
+}
+
+/* 文字列受信 */
+int gets(unsigned char *buf)
+{
+  int i = 0;
+  unsigned char c;
+
+  do {
+    c = getc();
+    if (c == '\n')
+      c = '\0';
+    buf[i++] = c;
+  } while (c);
+
+  return i - 1;
 }
 
 /* 16進数表示 */

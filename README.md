@@ -17,6 +17,12 @@
   $ sudo minicom -s -o    # setup
   ```
 
+- Install lrzsz (for xmodem)
+  ```
+  $ brew install lrzsz
+  ```
+
+
 ## Build Src & Write to H8/3069F
 
 ```

@@ -9,6 +9,7 @@ MEMORY
         rom(rx)         : ORIGIN = 0x000100, LENGTH = 0x07ff00
 
         ramall(rwx)     : ORIGIN = 0xffbf20, LENGTH = 0x004000 /* 16KB */
+        buffer(rwx)     : ORIGIN = 0xffdf20, LENGTH = 0x001d00 /* 8KB */
         data(rwx)       : ORIGIN = 0xfffc20, LENGTH = 0x000300
         stack(rw)       : ORIGIN = 0xffff00, LENGTH = 0x000000 /* end of RAM */
 }
@@ -32,6 +33,10 @@ SECTIONS
                 *(.rodata.*)   
                 _erodata = . ;
         } > rom
+
+        .buffer : {
+                _buffer_start = . ;  
+        } > buffer
 
         .data : {
                 _data_start = . ;

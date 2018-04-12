@@ -56,3 +56,20 @@ if [ ! -e $TOOLS_DIR/h8write ]; then
   sudo -u $SUDO_USER mkdir ../tools/h8write
   sudo -u $SUDO_USER gcc -Wall -o ../tools/h8write/h8write h8write.c
 fi
+
+####################
+# install kz_xmodem
+####################
+
+if [ ! -e $TOOLS_DIR/kz_xmodem ]; then
+  sudo -u $SUDO_USER mkdir -p $SCRIPT_DIR/build/kz_xmodem
+  sudo -u $SUDO_USER mkdir -p $TOOLS_DIR/kz_xmodem
+
+  cd $SCRIPT_DIR/build/kz_xmodem
+  sudo -u $SUDO_USER curl -O http://jaist.dl.osdn.jp/kz-xmodem/55725/kz_xmodem-v0.0.2.tar.gz
+  sudo -u $SUDO_USER tar jxf ./kz_xmodem-v0.0.2.tar.gz
+
+  cd $SCRIPT_DIR/build/kz_xmodem/src
+  sudo -u $SUDO_USER make
+  sudo -u $SUDO_USER cp kz_xmodem $TOOLS_DIR/kz_xmodem/
+fi
