@@ -1,4 +1,5 @@
 #include "defines.h"
+#include "interrupt.h"
 #include "serial.h"
 #include "xmodem.h"
 #include "elf.h"
@@ -16,6 +17,10 @@ static int init(void)
   memcpy(&data_start, &erodata, (long)&edata - (long)&data_start);
   memset(&bss_start, 0, (long)&ebss - (long)&bss_start);
 
+  /* ソフトウェア割り込みベクタを初期化する */
+  softvec_init();
+
+  /* シリアル初期化 */
   serial_init(SERIAL_DEFAULT_DEVICE);
 
   return 0;
@@ -56,10 +61,12 @@ int main(void)
   static char buf[16];
   static long size = -1;
   static unsigned char *loadbuf = NULL;
-  extern int buffer_start;
+  extern int buffer_start; /* リンカスクリプトで定義されているバッファ */
   char *entry_point;
   void (*f)(void);
-  
+
+  INTR_DISABLE;   /* 割り込み無効 */
+
   init();
 
   puts("kzload (kozos boot loader) started.\n");
