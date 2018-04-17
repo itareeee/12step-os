@@ -12,7 +12,8 @@ tools/*
 src/bootload/kzload*
 src/bootload/*.o
 
-src/os/kozos*
+src/os/kozos
+src/os/kozos.elf
 src/os/*.o
 
 

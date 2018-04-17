@@ -10,9 +10,10 @@ MEMORY
 
         ramall(rwx)     : ORIGIN = 0xffbf20, LENGTH = 0x004000 /* 16KB */
         softvec(rw)     : ORIGIN = 0xffbf20, LENGTH = 0x000040 /* top of RAM: 64byte */
-        buffer(rwx)     : ORIGIN = 0xffdf20, LENGTH = 0x001d00 /* 8KB */
+        buffer(rwx)     : ORIGIN = 0xffdf20, LENGTH = 0x001d00 /* 約8KB */
         data(rwx)       : ORIGIN = 0xfffc20, LENGTH = 0x000300
-        stack(rw)       : ORIGIN = 0xffff00, LENGTH = 0x000000 /* end of RAM */
+        bootstack(rw)   : ORIGIN = 0xffff00, LENGTH = 0x000000 
+        intrstack(rw)   : ORIGIN = 0xffff00, LENGTH = 0x000000 /* end of RAM */
 }
 
 SECTIONS
@@ -59,7 +60,11 @@ SECTIONS
         . = ALIGN(4);
         _end = . ;
 
-        .stack : {
-                _stack = .;  
-        } > stack
+        .bootstack : {
+                _bootstack = .;  
+        } > bootstack
+
+        .intrstack : {
+                _intrstack = .;  
+        } > intrstack
 }
